@@ -17,13 +17,14 @@ module.exports = class Heap {
       break;
     }
   }
+  // @TODO replace UI animation by react.js
   show() {
     let dir = 0;
     let start = 0;
     const end = this.elements.length;
     while (start < end) {
       const elements = [];
-      const dirElemNum = start + 2 ** dir < end ? 2 ** dir : end - start;
+      const dirElemNum = start + 2 ** dir < end ? 2 ** dir : end - start; // V8 >= 5.1.173
       for (let i = 0;i < dirElemNum;i++)
         elements.push(this.elements[start + i]);
       console.log(elements.join(' '));
